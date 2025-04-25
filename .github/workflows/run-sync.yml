@@ -29,5 +29,5 @@ jobs:
       - name: actions-template-sync
         uses: AndreasAugustin/actions-template-sync@v2
         with:
-          source_repo_path: content-services/matwojcik/playground-template
+          source_repo_path: matwojcik/playground-template
           upstream_branch: main
