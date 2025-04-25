@@ -43,4 +43,6 @@ jobs:
           source_repo_path: matwojcik/playground-template
           upstream_branch: main
           is_force_push_pr: true
-          template_sync_ignore_file_path: .github/.templatesyncignore${POSTFIX}
+          template_sync_ignore_file_path: .github/.templatesyncignore${{env.POSTFIX}}
+          pr_branch_name_prefix: template_sync${{env.POSTFIX}}
+          pr_title: Template sync${{env.POSTFIX}}
