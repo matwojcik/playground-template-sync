@@ -7,7 +7,8 @@ on:
 # The following permissions allow the action to assume the action role
 permissions:
   id-token: write
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   repo-sync:
