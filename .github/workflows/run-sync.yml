@@ -9,6 +9,7 @@ on:
         options:
           - github
           - infra
+          - scala
         
 
 # The following permissions allow the action to assume the action role
@@ -38,7 +39,7 @@ jobs:
       - name: actions-template-sync
         uses: AndreasAugustin/actions-template-sync@v2
         env: 
-          POSTFIX: ${{ github.event.inputs.area == 'github' && '.github' || github.event.inputs.area == 'infra' && '.infra' || '' }}
+          POSTFIX: ${{ github.event.inputs.area == 'github' && '.github' || github.event.inputs.area == 'infra' && '.infra' || github.event.inputs.area == 'scala' && '.scala' || '' }}
         with:
           source_repo_path: matwojcik/playground-template
           upstream_branch: main
