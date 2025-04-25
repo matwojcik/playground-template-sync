@@ -2,7 +2,14 @@ name: Run sync
 
 on:
   workflow_dispatch:
-
+    inputs:
+      area:
+        required: true
+        type: choice
+        options:
+          - github
+          - infra
+        
 
 # The following permissions allow the action to assume the action role
 permissions:
@@ -30,7 +37,10 @@ jobs:
 
       - name: actions-template-sync
         uses: AndreasAugustin/actions-template-sync@v2
+        env: 
+          POSTFIX: ${{ github.event.inputs.area == 'github' && '' || github.event.inputs.area == 'infra' && '.infra' || '' }}
         with:
           source_repo_path: matwojcik/playground-template
           upstream_branch: main
           is_force_push_pr: true
+          template_sync_ignore_file_path: .github/.templatesyncignore${POSTFIX}
