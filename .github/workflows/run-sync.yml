@@ -38,7 +38,7 @@ jobs:
       - name: actions-template-sync
         uses: AndreasAugustin/actions-template-sync@v2
         env: 
-          POSTFIX: ${{ github.event.inputs.area == 'github' && 'github' || github.event.inputs.area == 'infra' && '.infra' || '' }}
+          POSTFIX: ${{ github.event.inputs.area == 'github' && '.github' || github.event.inputs.area == 'infra' && '.infra' || '' }}
         with:
           source_repo_path: matwojcik/playground-template
           upstream_branch: main
