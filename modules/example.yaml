@@ -1,8 +1,9 @@
 name: playground
+language: pl 
 movies:
   - Shrek
   - Seven
   - Pulp Fiction
 country: Poland
-city: Lublin
+city: Wrocław
 postcode: 12-122
