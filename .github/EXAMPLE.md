@@ -1,1 +1,3 @@
-This is example, but modified file
+This is example file
+
+A new line
