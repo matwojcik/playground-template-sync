@@ -1,0 +1,33 @@
+name: Run sync
+
+on:
+  workflow_dispatch:
+
+
+# The following permissions allow the action to assume the action role
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    # https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      # To use this repository's private action, you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+        # https://github.com/actions/checkout#usage
+        # uncomment if you use submodules within the repository
+        # with:
+        #   submodules: true
+
+      - name: actions-template-sync
+        uses: AndreasAugustin/actions-template-sync@v2
+        with:
+          source_repo_path: content-services/matwojcik/playground-template
+          upstream_branch: main
